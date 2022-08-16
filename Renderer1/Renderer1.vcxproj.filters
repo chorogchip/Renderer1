@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\data">
+      <UniqueIdentifier>{ef4513c4-47b4-43b2-9d27-01df7c0b5cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\data">
+      <UniqueIdentifier>{5bae38c3-57f0-4661-968b-b4ac41e1d2d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\windows">
+      <UniqueIdentifier>{acec1c10-d0fe-4bb0-8827-2461c31237a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\windows">
+      <UniqueIdentifier>{f5f32aea-2915-4dbb-94e1-caf2508847e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\core">
+      <UniqueIdentifier>{f235437f-c65b-45b8-bfd0-e5e45e254437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\core">
+      <UniqueIdentifier>{efc85569-241a-40f5-b520-65f8c6b21d76}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer1.h">
+      <Filter>헤더 파일\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.hpp">
+      <Filter>헤더 파일\data</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingPipeline.h">
+      <Filter>헤더 파일\core</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapDrawer.h">
+      <Filter>헤더 파일\windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Renderer1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 파일\data</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingPipeline.cpp">
+      <Filter>소스 파일\core</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapDrawer.cpp">
+      <Filter>소스 파일\windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Renderer1.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Renderer1.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
