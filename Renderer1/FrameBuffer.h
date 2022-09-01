@@ -2,15 +2,14 @@
 
 #include "framework.h"
 #include "Types.h"
-#include "FrameBuffer.h"
 
-class BitmapDrawer {
-private:
-    BITMAPINFO info_;
-    HDC device_context_;
+class FrameBuffer {
 public:
+    TextureColorBuffer buffer_color;
+    TextureDepthBuffer buffer_depth;
+    
     void init(HWND const &window);
     void update_w_h(win_sz client_width, win_sz client_height);
-    void draw(FrameBuffer const &);
+    void clear();
 };
 

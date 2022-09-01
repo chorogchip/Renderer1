@@ -2,7 +2,7 @@
 #include<cstring>
 
 template<typename T>
-class Texture sealed {
+class Texture final {
 private:
     size_t width_;
     size_t height_;
@@ -10,7 +10,7 @@ private:
     T* data_;
 public:
     Texture();
-    Texture(size_t width, size_t height);
+    explicit Texture(size_t width, size_t height);
     ~Texture();
     Texture(Texture<T> const &);
     Texture &operator=(Texture<T> const &);

@@ -17,11 +17,11 @@ BOOL                InitInstance(HINSTANCE, int, HWND *);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
-{
+RenderingPipeline rendering_pipeline{};
+
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
+                     _In_ LPWSTR    lpCmdLine, _In_ int       nCmdShow) {
+
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -32,9 +32,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HWND window;
     if (!InitInstance(hInstance, nCmdShow, &window))
         return FALSE;
-    
-    RenderingPipeline rendering_pipeline{};
+
+
     rendering_pipeline.init(window);
+    {
+        RECT ClientRect;
+        GetClientRect(window, &ClientRect);
+        auto client_width = ClientRect.right - ClientRect.left;
+        auto client_height = ClientRect.bottom - ClientRect.top;
+        rendering_pipeline.update_w_h(client_width, client_height);
+    }
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_RENDERER1));
     MSG msg;
@@ -115,6 +122,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
+
+    case WM_SIZING:
+        {
+            RECT ClientRect;
+            GetClientRect(hWnd, &ClientRect);
+            auto client_width = ClientRect.right - ClientRect.left;
+            auto client_height = ClientRect.bottom - ClientRect.top;
+            rendering_pipeline.update_w_h(client_width, client_height);
+        }
+        break;
     }
     return 0;
 }

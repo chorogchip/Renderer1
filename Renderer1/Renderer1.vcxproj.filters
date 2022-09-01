@@ -22,14 +22,23 @@
     <Filter Include="헤더 파일\windows">
       <UniqueIdentifier>{acec1c10-d0fe-4bb0-8827-2461c31237a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\windows">
-      <UniqueIdentifier>{f5f32aea-2915-4dbb-94e1-caf2508847e3}</UniqueIdentifier>
+    <Filter Include="헤더 파일\pipeline">
+      <UniqueIdentifier>{efc85569-241a-40f5-b520-65f8c6b21d76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\core">
+    <Filter Include="소스 파일\pipeline">
       <UniqueIdentifier>{f235437f-c65b-45b8-bfd0-e5e45e254437}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\core">
-      <UniqueIdentifier>{efc85569-241a-40f5-b520-65f8c6b21d76}</UniqueIdentifier>
+    <Filter Include="헤더 파일\pipeline\buffers">
+      <UniqueIdentifier>{f1746310-c642-40de-96f0-e9fedf3c28c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\pipeline\processors">
+      <UniqueIdentifier>{38169b5f-40a0-4c7a-a8dd-189435e451af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\pipeline\processors">
+      <UniqueIdentifier>{ba662b14-8011-4dfd-b998-ce95bc55ec70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\pipeline\buffers">
+      <UniqueIdentifier>{7e5c1b91-bb49-45e5-8152-87c3a18cb23d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,24 +58,54 @@
       <Filter>헤더 파일\data</Filter>
     </ClInclude>
     <ClInclude Include="RenderingPipeline.h">
-      <Filter>헤더 파일\core</Filter>
+      <Filter>헤더 파일\pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>헤더 파일\data</Filter>
+    </ClInclude>
+    <ClInclude Include="Vectors.h">
+      <Filter>헤더 파일\data</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrixes.h">
+      <Filter>헤더 파일\data</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>헤더 파일\pipeline\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="Merger.h">
+      <Filter>헤더 파일\pipeline\processors</Filter>
     </ClInclude>
     <ClInclude Include="BitmapDrawer.h">
-      <Filter>헤더 파일\windows</Filter>
+      <Filter>헤더 파일\pipeline\processors</Filter>
+    </ClInclude>
+    <ClInclude Include="FragmentsBuffer.h">
+      <Filter>헤더 파일\pipeline\buffers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Renderer1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="Vectors.cpp">
+      <Filter>소스 파일\data</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrixes.cpp">
       <Filter>소스 파일\data</Filter>
     </ClCompile>
     <ClCompile Include="RenderingPipeline.cpp">
-      <Filter>소스 파일\core</Filter>
+      <Filter>소스 파일\pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Merger.cpp">
+      <Filter>소스 파일\pipeline\processors</Filter>
     </ClCompile>
     <ClCompile Include="BitmapDrawer.cpp">
-      <Filter>소스 파일\windows</Filter>
+      <Filter>소스 파일\pipeline\processors</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameBuffer.cpp">
+      <Filter>소스 파일\pipeline\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="FragmentsBuffer.cpp">
+      <Filter>소스 파일\pipeline\buffers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,5 +120,10 @@
     <Image Include="Renderer1.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>
