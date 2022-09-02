@@ -3,9 +3,8 @@
 #include "framework.h"
 #include "Types.h"
 
-class FragmentsBuffer {
-private:
+class DataFragment {
 public:
     ArrayFragments fragments;
-    static FragmentsBuffer test1();
+    static DataFragment test1();
 };

@@ -28,17 +28,23 @@
     <Filter Include="소스 파일\pipeline">
       <UniqueIdentifier>{f235437f-c65b-45b8-bfd0-e5e45e254437}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\pipeline\buffers">
-      <UniqueIdentifier>{f1746310-c642-40de-96f0-e9fedf3c28c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\pipeline\processors">
       <UniqueIdentifier>{38169b5f-40a0-4c7a-a8dd-189435e451af}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\pipeline\processors">
       <UniqueIdentifier>{ba662b14-8011-4dfd-b998-ce95bc55ec70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\pipeline\buffers">
+    <Filter Include="소스 파일\pipeline\datas">
       <UniqueIdentifier>{7e5c1b91-bb49-45e5-8152-87c3a18cb23d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\pipeline\datas">
+      <UniqueIdentifier>{f1746310-c642-40de-96f0-e9fedf3c28c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{66e30b2a-7926-49fd-a28d-90bff7587dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\tga">
+      <UniqueIdentifier>{4b5f1bce-162a-4ce0-9ea1-49e5ce83eb20}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,8 +75,8 @@
     <ClInclude Include="Matrixes.h">
       <Filter>헤더 파일\data</Filter>
     </ClInclude>
-    <ClInclude Include="FrameBuffer.h">
-      <Filter>헤더 파일\pipeline\buffers</Filter>
+    <ClInclude Include="DataFrameBuffer.h">
+      <Filter>헤더 파일\pipeline\datas</Filter>
     </ClInclude>
     <ClInclude Include="Merger.h">
       <Filter>헤더 파일\pipeline\processors</Filter>
@@ -78,8 +84,17 @@
     <ClInclude Include="BitmapDrawer.h">
       <Filter>헤더 파일\pipeline\processors</Filter>
     </ClInclude>
-    <ClInclude Include="FragmentsBuffer.h">
-      <Filter>헤더 파일\pipeline\buffers</Filter>
+    <ClInclude Include="DataPixelColor.h">
+      <Filter>헤더 파일\pipeline\datas</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFragment.h">
+      <Filter>헤더 파일\pipeline\datas</Filter>
+    </ClInclude>
+    <ClInclude Include="FragmentShader.h">
+      <Filter>헤더 파일\pipeline\processors</Filter>
+    </ClInclude>
+    <ClInclude Include="tga-main\tga.h">
+      <Filter>libs\tga</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,11 +116,32 @@
     <ClCompile Include="BitmapDrawer.cpp">
       <Filter>소스 파일\pipeline\processors</Filter>
     </ClCompile>
-    <ClCompile Include="FrameBuffer.cpp">
-      <Filter>소스 파일\pipeline\buffers</Filter>
+    <ClCompile Include="DataFrameBuffer.cpp">
+      <Filter>소스 파일\pipeline\datas</Filter>
     </ClCompile>
-    <ClCompile Include="FragmentsBuffer.cpp">
-      <Filter>소스 파일\pipeline\buffers</Filter>
+    <ClCompile Include="DataPixelColor.cpp">
+      <Filter>소스 파일\pipeline\datas</Filter>
+    </ClCompile>
+    <ClCompile Include="DataFragment.cpp">
+      <Filter>소스 파일\pipeline\datas</Filter>
+    </ClCompile>
+    <ClCompile Include="FragmentShader.cpp">
+      <Filter>소스 파일\pipeline\processors</Filter>
+    </ClCompile>
+    <ClCompile Include="tga-main\decoder.cpp">
+      <Filter>libs\tga</Filter>
+    </ClCompile>
+    <ClCompile Include="tga-main\encoder.cpp">
+      <Filter>libs\tga</Filter>
+    </ClCompile>
+    <ClCompile Include="tga-main\image_iterator.cpp">
+      <Filter>libs\tga</Filter>
+    </ClCompile>
+    <ClCompile Include="tga-main\stdio.cpp">
+      <Filter>libs\tga</Filter>
+    </ClCompile>
+    <ClCompile Include="Types.cpp">
+      <Filter>소스 파일\data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,5 +161,19 @@
     <None Include="..\README.md">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="tga-main\CONTRIBUTING.md">
+      <Filter>libs\tga</Filter>
+    </None>
+    <None Include="tga-main\README.md">
+      <Filter>libs\tga</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="tga-main\CMakeLists.txt">
+      <Filter>libs\tga</Filter>
+    </Text>
+    <Text Include="tga-main\LICENSE.txt">
+      <Filter>libs\tga</Filter>
+    </Text>
   </ItemGroup>
 </Project>

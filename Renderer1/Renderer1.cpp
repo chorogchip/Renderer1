@@ -34,7 +34,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
         return FALSE;
 
 
-    rendering_pipeline.init(window);
+    if (!rendering_pipeline.init(window)) return FALSE;
+
     {
         RECT ClientRect;
         GetClientRect(window, &ClientRect);

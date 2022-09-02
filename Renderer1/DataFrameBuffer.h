@@ -3,7 +3,7 @@
 #include "framework.h"
 #include "Types.h"
 
-class FrameBuffer {
+class DataFrameBuffer {
 public:
     TextureColorBuffer buffer_color;
     TextureDepthBuffer buffer_depth;

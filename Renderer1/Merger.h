@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Types.h"
-#include "FragmentsBuffer.h"
-#include "FrameBuffer.h"
+#include "DataPixelColor.h"
+#include "DataFrameBuffer.h"
 
 class Merger {
 public:
-    void merge(FragmentsBuffer &fragments, FrameBuffer &frame_buffer);
+    void merge(DataPixelColor &, DataFrameBuffer &) const;
 };
 

@@ -2,7 +2,7 @@
 
 #include "framework.h"
 #include "Types.h"
-#include "FrameBuffer.h"
+#include "DataFrameBuffer.h"
 
 class BitmapDrawer {
 private:
@@ -11,6 +11,7 @@ private:
 public:
     void init(HWND const &window);
     void update_w_h(win_sz client_width, win_sz client_height);
-    void draw(FrameBuffer const &);
+    void draw(DataFrameBuffer const &);
+    void draw(TextureColorBuffer const &);
 };
 
