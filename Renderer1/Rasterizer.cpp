@@ -136,10 +136,7 @@ Fragment Rasterizer::gen_fragment(Fragment const &f1, Fragment const &f2, Fragme
     ret.tex_coord = INTP(tex_coord);
     ret.view_direction_fram_cam = INTP(view_direction_fram_cam);
 
-    assert(ret.tex_coord.x >= 0.0f);
-    assert(ret.tex_coord.x <=  1.0f);
-    assert(ret.tex_coord.y >= 0.0f);
-    assert(ret.tex_coord.y <=  1.0f);
+    ret.tex_coord.saturate();
 
     return ret;
 #undef INTP

@@ -1,6 +1,8 @@
 #pragma once
+#define _USE_MATH_DEFINES
 #include <vector>
 #include <cassert>
+#include <cmath>
 #include "framework.h"
 #include "tga-main/tga.h"
 #include "Types.h"

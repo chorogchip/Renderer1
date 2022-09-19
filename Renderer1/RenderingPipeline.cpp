@@ -19,17 +19,17 @@ void RenderingPipeline::update_w_h(win_sz client_width, win_sz client_height) {
 void RenderingPipeline::draw() {
     Position3 cam{ 0.0f, 0.0f, 5.0f };
     Position4 light{ 5.0f, 5.0f, 2.0f };
-    vertices_ = DataVertex::test1();
+    vertices_ = DataVertex::test2();
     vertex_shader_.set_pos_world_cam(Position4{cam});
     vertex_shader_.set_pos_world_light(light);
     vertex_shader_.set_matrix_world(
-        Matrix4x4f::get_rotate_x(x_rot) *
-        Matrix4x4f::get_rotate_y(y_rot) *
         Matrix4x4f::get_rotate_z(z_rot) *
+        Matrix4x4f::get_rotate_y(y_rot) *
+        Matrix4x4f::get_rotate_x(x_rot) *
         Matrix4x4f::get_scale(Vector4f{10.0f, 10.0f, 10.0f, 1.0f})
     );
     vertex_shader_.set_matrix_view(Matrix4x4f::get_trasnpose(Position4{-cam, 1.0f}));
-    vertex_shader_.set_matrix_projection(Matrix4x4f::get_projection(2.3f, 1.0f, 1.0f, 100.0f));
+    vertex_shader_.set_matrix_projection(Matrix4x4f::get_projection(M_PI / 1.5, 1.0f, 1.0f, 100.0f));
     vertex_shader_.apply_shader(vertices_, vertices_shaded_);
 
     rasterizer_.rasterize(vertices_shaded_, fragments_);
