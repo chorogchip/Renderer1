@@ -1,5 +1,35 @@
 #include "Matrixes.h"
 
+Matrix3x3f::Matrix3x3f():
+    m()
+{}
+#define a(x) l.begin()[x]
+#define arr(x) a(x), a(x+1), a(x+2)
+Matrix3x3f::Matrix3x3f(std::initializer_list<float> l):
+    m{ arr(0), arr(3), arr(6) }
+{}
+#undef a
+#undef arr
+
+#define a(v) v.x, v.y, v.z
+Matrix3x3f::Matrix3x3f(Vector3f const &v1, Vector3f const &v2, Vector3f const &v3):
+    m{ a(v1), a(v2), a(v3) }
+{}
+#undef a
+
+Matrix3x3f::Matrix3x3f(Matrix4x4f const &mat):
+    m{ mat.m[0], mat.m[1], mat.m[2],
+       mat.m[4], mat.m[5], mat.m[6],
+       mat.m[8], mat.m[9], mat.m[10]}
+{}
+
+Vector3f const Matrix3x3f::operator*(Vector3f const &v) const {
+    return Vector3f {
+        m[0]*v.x + m[1]*v.y + m[2]*v.z,
+        m[3]*v.x + m[4]*v.y + m[5]*v.z,
+        m[6]*v.x + m[7]*v.y + m[8]*v.z,
+    };
+}
 
 Matrix4x4f::Matrix4x4f():
     m()
@@ -193,7 +223,15 @@ Matrix4x4f const Matrix4x4f::get_projection(float fov_Y, float aspect, float n, 
     return Matrix4x4f{
         tmp/aspect, 0.0f, 0.0f, 0.0f,
         0.0f, tmp, 0.0f, 0.0f,
-        0.0f, 0.0f, (f+n)/(n-f), 2*n*f/(n-f),
+        0.0f, 0.0f, (f+n)/(f-n), 2*n*f/(f-n),
         0.0f, 0.0f, -1.0f, 0.0f
+    };
+}
+Matrix4x4f const Matrix4x4f::get_viewport(float w, float h, float min_x, float min_y, float min_z, float max_z) {
+    return Matrix4x4f{
+        w/2.0f, 0.0f, 0.0f, min_x + w/2.0f,
+        0.0f, h/2.0f, 0.0f, min_y + h/2.0f,
+        0.0f, 0.0f, (max_z - min_z) / 2.0f, (max_z + min_z) / 2.0f,
+        0.0f, 0.0f, 0.0f, 1.0f
     };
 }

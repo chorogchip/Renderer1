@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -121,7 +121,7 @@
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -135,10 +135,13 @@
     <ClInclude Include="DataFragment.h" />
     <ClInclude Include="DataPixelColor.h" />
     <ClInclude Include="DataFrameBuffer.h" />
+    <ClInclude Include="DataVertex.h" />
     <ClInclude Include="FragmentShader.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="Matrixes.h" />
     <ClInclude Include="Merger.h" />
+    <ClInclude Include="Rasterizer.h" />
     <ClInclude Include="Renderer1.h" />
     <ClInclude Include="RenderingPipeline.h" />
     <ClInclude Include="Resource.h" />
@@ -147,15 +150,19 @@
     <ClInclude Include="tga-main\tga.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="Vectors.h" />
+    <ClInclude Include="VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitmapDrawer.cpp" />
     <ClCompile Include="DataFragment.cpp" />
     <ClCompile Include="DataPixelColor.cpp" />
     <ClCompile Include="DataFrameBuffer.cpp" />
+    <ClCompile Include="DataVertex.cpp" />
     <ClCompile Include="FragmentShader.cpp" />
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrixes.cpp" />
     <ClCompile Include="Merger.cpp" />
+    <ClCompile Include="Rasterizer.cpp" />
     <ClCompile Include="Renderer1.cpp" />
     <ClCompile Include="RenderingPipeline.cpp" />
     <ClCompile Include="tga-main\decoder.cpp" />
@@ -164,6 +171,7 @@
     <ClCompile Include="tga-main\stdio.cpp" />
     <ClCompile Include="Types.cpp" />
     <ClCompile Include="Vectors.cpp" />
+    <ClCompile Include="VertexShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Renderer1.rc" />

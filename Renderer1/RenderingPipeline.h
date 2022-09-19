@@ -5,6 +5,9 @@
 #include "tga-main/tga.h"
 #include "Types.h"
 
+#include "DataVertex.h"
+#include "VertexShader.h"
+#include "Rasterizer.h"
 #include "DataFragment.h"
 #include "FragmentShader.h"
 #include "DataPixelColor.h"
@@ -14,6 +17,10 @@
 
 class RenderingPipeline {
 private:
+    DataVertex vertices_;
+    VertexShader vertex_shader_;
+    DataFragment vertices_shaded_;
+    Rasterizer rasterizer_;
     DataFragment fragments_;
     FragmentShader fragment_shader_;
     DataPixelColor colored_fragments_;

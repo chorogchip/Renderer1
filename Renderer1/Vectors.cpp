@@ -4,6 +4,14 @@ Vector2f::Vector2f(float x, float y):
     x{x},
     y{y}
 {}
+Vector2f::Vector2f(Vector3f const &v):
+    x{v.x},
+    y{v.y}
+{}
+Vector2f::Vector2f(Vector4f const &v):
+    x{v.x},
+    y{v.y}
+{}
 Vector2f const Vector2f::operator-() const {
     return Vector2f{ -x, -y };
 }
@@ -67,6 +75,9 @@ Vector2f &Vector2f::clamp(float min, float max) {
     y = y < max ? (y > min ? y : min) : max;
     return *this;
 }
+float Vector2f::inner(Vector2f const &v) const {
+    return x * v.x + y * v.y;
+}
 
 Vector2f const Vector2f::get_unit_x() {
     return Vector2f{1.0f, 0.0f};
@@ -86,9 +97,9 @@ Vector3f::Vector3f(Vector4f const &v):
     x{v.x}, y{v.y}, z{v.z}
 {}
 Vector3f::Vector3f(uint32_t uint_val):
-    x{static_cast<float>(uint_val & 0xff000000U)/255.0f},
-    y{static_cast<float>(uint_val & 0x00ff0000U)/255.0f},
-    z{static_cast<float>(uint_val & 0x0000ff00U)/255.0f}
+    x{static_cast<float>((uint_val & 0xff0000U) >> 16U)/255.0f},
+    y{static_cast<float>((uint_val & 0x00ff00U) >>  8U)/255.0f},
+    z{static_cast<float>((uint_val & 0x0000ffU) >>  0U)/255.0f}
 {}
 Vector3f const Vector3f::operator-() const {
     return Vector3f{ -x, -y, -z };
@@ -176,6 +187,15 @@ Vector3f const Vector3f::get_unit_y() {
 }
 Vector3f const Vector3f::get_unit_z() {
     return Vector3f{0.0f, 0.0f, 1.0f};
+}
+Vector3f const Vector3f::reflect(Vector3f const &normal) const {
+    Vector3f n{normal.get_normalize()};
+    return *this - n * (2.0f * this->inner(n));
+}
+void Vector3f::swap(Vector3f &v) {
+    Vector3f tmp{v};
+    v = *this;
+    *this = tmp;
 }
 
 

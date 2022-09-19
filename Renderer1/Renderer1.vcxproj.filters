@@ -46,6 +46,12 @@
     <Filter Include="libs\tga">
       <UniqueIdentifier>{4b5f1bce-162a-4ce0-9ea1-49e5ce83eb20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\util">
+      <UniqueIdentifier>{b00a9801-1397-485e-b860-5e438d53f912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\util">
+      <UniqueIdentifier>{b69b105b-2969-4dfc-8ee0-61ba5b524b34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -96,6 +102,18 @@
     <ClInclude Include="tga-main\tga.h">
       <Filter>libs\tga</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>헤더 파일\util</Filter>
+    </ClInclude>
+    <ClInclude Include="DataVertex.h">
+      <Filter>헤더 파일\pipeline\datas</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexShader.h">
+      <Filter>헤더 파일\pipeline\processors</Filter>
+    </ClInclude>
+    <ClInclude Include="Rasterizer.h">
+      <Filter>헤더 파일\pipeline\processors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Renderer1.cpp">
@@ -142,6 +160,18 @@
     </ClCompile>
     <ClCompile Include="Types.cpp">
       <Filter>소스 파일\data</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>소스 파일\util</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexShader.cpp">
+      <Filter>소스 파일\pipeline\processors</Filter>
+    </ClCompile>
+    <ClCompile Include="DataVertex.cpp">
+      <Filter>소스 파일\pipeline\datas</Filter>
+    </ClCompile>
+    <ClCompile Include="Rasterizer.cpp">
+      <Filter>소스 파일\pipeline\processors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

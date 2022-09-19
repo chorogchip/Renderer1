@@ -23,7 +23,15 @@ public:
     T const &at(size_t x, size_t y) const {
         return data_[y * width_ + x];
     }
+    T const &at(float x, float y) const {
+        size_t xx{static_cast<size_t>(x * (this->get_width() - 1))};
+        size_t yy{static_cast<size_t>(y * (this->get_height() - 1))};
+        return data_[yy * width_ + xx];
+    }
     T &at(size_t x, size_t y) {
+        return const_cast<T &>(static_cast<Texture<T> const &>(*this).at(x, y));
+    }
+    T &at(float x, float y) {
         return const_cast<T &>(static_cast<Texture<T> const &>(*this).at(x, y));
     }
     void clear() { memset(data_, 0, size_); }

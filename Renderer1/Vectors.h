@@ -12,6 +12,8 @@ public:
     float y;
     Vector2f(float x = 0.0f, float y = 0.0f);
     Vector2f(Vector2f const &) = default;
+    explicit Vector2f(Vector3f const &);
+    explicit Vector2f(Vector4f const &);
     Vector2f &operator=(Vector2f const &) = default;
     Vector2f const operator-() const;
     Vector2f const operator+(Vector2f const &) const;
@@ -34,6 +36,7 @@ public:
     Vector2f &saturate();
     Vector2f &clamp(float min, float max);
     template<typename T, typename U> Vector2f &clamp(T, U) = delete;
+    float inner(Vector2f const &) const;
 
     static Vector2f const get_unit_x();
     static Vector2f const get_unit_y();
@@ -72,6 +75,8 @@ public:
     template<typename T, typename U> Vector3f &clamp(T, U) = delete;
     float inner(Vector3f const &) const;
     Vector3f const cross(Vector3f const &) const;
+    Vector3f const reflect(Vector3f const &normal) const;
+    void swap(Vector3f &);
 
     static Vector3f const get_unit_x();
     static Vector3f const get_unit_y();
