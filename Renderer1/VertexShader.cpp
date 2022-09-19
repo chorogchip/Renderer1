@@ -17,8 +17,9 @@ void VertexShader::apply_shader(DataVertex &vertices_in, DataFragment &fragments
 
         Vector3f world_noraml{Matrix3x3f{mat_world_} * in.normal};
         world_noraml.normalize();
-
-        out.diffuse = (-light_dir).inner(world_noraml);
+        
+        float dif_lit{(-light_dir).inner(world_noraml)};
+        out.diffuse = Vector3f{ dif_lit, dif_lit, dif_lit };
         out.reflection_light = light_dir.reflect(world_noraml);
 
         out.tex_coord = in.tex_coord;

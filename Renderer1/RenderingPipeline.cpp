@@ -17,8 +17,8 @@ void RenderingPipeline::update_w_h(win_sz client_width, win_sz client_height) {
     final_color_buffer_.update_w_h(client_width, client_height);
 }
 void RenderingPipeline::draw() {
-    Position3 cam{0.0f, 0.0f, 5.0f};
-    Position4 light{500.0f, 500.0f, 300.0f};
+    Position3 cam{ 0.0f, 0.0f, 5.0f };
+    Position4 light{ 5.0f, 5.0f, 2.0f };
     vertices_ = DataVertex::test1();
     vertex_shader_.set_pos_world_cam(Position4{cam});
     vertex_shader_.set_pos_world_light(light);
@@ -34,7 +34,7 @@ void RenderingPipeline::draw() {
 
     rasterizer_.rasterize(vertices_shaded_, fragments_);
 
-    Color_V3f light_color{ 1.0f, 0.5f, 0.8f };
+    Color_V3f light_color{ 0.5f, 0.5f, 0.7f };
     fragment_shader_.set_texture_diffuse(texture_diffuse_);
     fragment_shader_.set_texture_specular(texture_specular_);
     fragment_shader_.set_light_color(light_color);

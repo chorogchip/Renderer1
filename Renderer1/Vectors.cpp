@@ -1,5 +1,9 @@
 #include "Vectors.h"
 
+Vector2f::Vector2f():
+    x{0.0f},
+    y{0.0f}
+{}
 Vector2f::Vector2f(float x, float y):
     x{x},
     y{y}
@@ -90,6 +94,11 @@ Vector2f const Vector2f::get_unit_y() {
 
 
 
+Vector3f::Vector3f():
+    x{0.0f},
+    y{0.0f},
+    z{0.0f}
+{}
 Vector3f::Vector3f(float x, float y, float z):
     x{x}, y{y}, z{z}
 {}
@@ -175,8 +184,9 @@ float Vector3f::inner(Vector3f const &v) const {
     return x * v.x + y * v.y + z * v.z;
 }
 Vector3f const Vector3f::cross(Vector3f const &v) const {
-    return Vector3f{ y * v.z - z * v.y +
-        z * v.x - x * v.z +
+    return Vector3f{
+        y * v.z - z * v.y,
+        z * v.x - x * v.z,
         x * v.y - y * v.x };
 }
 Vector3f const Vector3f::get_unit_x() {
@@ -202,6 +212,12 @@ void Vector3f::swap(Vector3f &v) {
 
 
 
+Vector4f::Vector4f():
+    x{0.0f},
+    y{0.0f},
+    z{0.0f},
+    w{0.0f}
+{}
 Vector4f::Vector4f(float x, float y, float z, float w):
     x{x}, y{y}, z{z}, w{w}
 {}
@@ -294,9 +310,10 @@ float Vector4f::inner(Vector4f const &v) const {
     return x * v.x + y * v.y + z * v.z + w * v.w;
 }
 Vector4f const Vector4f::cross(Vector4f const &v) const {
-    return Vector4f{ y * v.z - z * v.y +
-        z * v.w - w * v.z +
-        w * v.x - x * v.w +
+    return Vector4f{
+        y * v.z - z * v.y,
+        z * v.w - w * v.z,
+        w * v.x - x * v.w,
         x * v.y - y * v.x };
 }
 Vector4f const Vector4f::get_unit_x() {

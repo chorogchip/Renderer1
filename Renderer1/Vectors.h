@@ -10,7 +10,8 @@ class alignas(sizeof(float)*2) Vector2f final {
 public:
     float x;
     float y;
-    Vector2f(float x = 0.0f, float y = 0.0f);
+    Vector2f();
+    Vector2f(float x, float y);
     Vector2f(Vector2f const &) = default;
     explicit Vector2f(Vector3f const &);
     explicit Vector2f(Vector4f const &);
@@ -47,7 +48,8 @@ public:
     union { float x, r; };
     union { float y, g; };
     union { float z, b; };
-    Vector3f(float x = 0.0f, float y = 0.0f, float z = 0.0f);
+    Vector3f();
+    Vector3f(float x, float y, float z);
     explicit Vector3f(Vector4f const &);
     Vector3f(Vector3f const &) = default;
     explicit Vector3f(uint32_t);
@@ -88,7 +90,8 @@ public:
     union { float y, g; };
     union { float z, b; };
     union { float w, a; };
-    Vector4f(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f);
+    Vector4f();
+    Vector4f(float x, float y, float z, float w = 0.0f);
     explicit Vector4f(Vector3f const &, float = 0.0f);
     Vector4f(Vector4f const &) = default;
     explicit Vector4f(uint32_t);
