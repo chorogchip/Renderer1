@@ -53,9 +53,9 @@ void Rasterizer::rasterize(DataFragment &fragments_in, DataFragment &fragments_o
                 if (len_f2 >= 1.0f) for (float f2 = st; f2 <= fn; f2 += 1.0f) {
                     float f2_intp{(f2 - st) / len_f2};
                     fragments_out.fragments.push_back(gen_fragment(*in1, *in2, *in3,
-                                                                    f2_intp * (1.0f - st_intp),
-                                                                   f2_intp * st_intp + (1.0f - f2_intp) * fn_intp,
-                                                                   (1.0f - f2_intp) * (1.0f - fn_intp),
+                                                                    (1.0f - f2_intp) * st_intp,
+                                                                   (1.0f - f2_intp) * (1.0f - st_intp) + f2_intp * (1.0f - fn_intp),
+                                                                   f2_intp * fn_intp,
                                                                    Vector2f{f2, f}));
                 }
             }
@@ -70,9 +70,9 @@ void Rasterizer::rasterize(DataFragment &fragments_in, DataFragment &fragments_o
                 if (len_f2 >= 1.0f) for (float f2 = st; f2 <= fn; f2 += 1.0f) {
                     float f2_intp{(f2 - st) / len_f2};
                     fragments_out.fragments.push_back(gen_fragment(*in1, *in2, *in3,
-                                                                   f2_intp * (1.0f - st_intp) + (1.0f - f2_intp) * (1.0f - fn_intp),
-                                                                   f2_intp * st_intp,
-                                                                   (1.0f - f2_intp) * fn_intp,
+                                                                   (1.0f - f2_intp) * st_intp + f2_intp * fn_intp,
+                                                                   (1.0f - f2_intp) * (1.0f - st_intp),
+                                                                   f2_intp * (1.0f - fn_intp),
                                                                    Vector2f{f2, f}));
                 }
             }
@@ -88,9 +88,9 @@ void Rasterizer::rasterize(DataFragment &fragments_in, DataFragment &fragments_o
                 if (len_f2 >= 1.0f) for (float f2 = st; f2 <= fn; f2 += 1.0f) {
                     float f2_intp{(f2 - st) / len_f2};
                     fragments_out.fragments.push_back(gen_fragment(*in1, *in2, *in3,
-                                                                   f2_intp * (1.0f - st_intp),
-                                                                   f2_intp * st_intp + (1.0f - f2_intp) * fn_intp,
-                                                                   (1.0f - f2_intp) * (1.0f - fn_intp),
+                                                                   (1.0f - f2_intp) * st_intp,
+                                                                   (1.0f - f2_intp) * (1.0f - st_intp) + f2_intp * (1.0f - fn_intp),
+                                                                   f2_intp * fn_intp,
                                                                    Vector2f{f2, f}));
                 }
             }
@@ -105,9 +105,9 @@ void Rasterizer::rasterize(DataFragment &fragments_in, DataFragment &fragments_o
                 if (len_f2 >= 1.0f) for (float f2 = st; f2 <= fn; f2 += 1.0f) {
                     float f2_intp{(f2 - st) / len_f2};
                     fragments_out.fragments.push_back(gen_fragment(*in1, *in2, *in3,
-                                                                   f2_intp * (1.0f - st_intp) + (1.0f - f2_intp) * (1.0f - fn_intp),
-                                                                   f2_intp * st_intp,
-                                                                   (1.0f - f2_intp) * fn_intp,
+                                                                   (1.0f - f2_intp) * st_intp + f2_intp * fn_intp,
+                                                                   (1.0f - f2_intp) * (1.0f - st_intp),
+                                                                   f2_intp * (1.0f - fn_intp),
                                                                    Vector2f{f2, f}));
                 }
             }
@@ -124,7 +124,7 @@ void Rasterizer::update_w_h(win_sz client_width, win_sz client_height) {
 Fragment Rasterizer::gen_fragment(Fragment const &f1, Fragment const &f2, Fragment const &f3,
                                   float intp1, float intp2, float intp3,
                                   Vector2f pos) {
-#define INTP(x) (f1.x * intp1 + f2.x * intp2 + f3.x * intp3) 
+#define INTP(xxx) (f1.xxx * intp1 + f2.xxx * intp2 + f3.xxx * intp3) 
     Fragment ret;
     float sum{intp1 + intp2 + intp3};
     intp1 /= sum;

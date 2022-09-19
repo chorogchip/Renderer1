@@ -36,5 +36,7 @@ public:
     ActionResult init(HWND const &window);
     void update_w_h(win_sz client_width, win_sz client_height);
     void draw();
+
+    float x_rot = 0.0f, y_rot = 0.0f, z_rot = 0.0f;
 };
 

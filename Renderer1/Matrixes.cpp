@@ -182,15 +182,15 @@ Matrix4x4f const Matrix4x4f::get_scale(Vector4f const &v) {
 }
 Matrix4x4f const Matrix4x4f::get_scale(float x, float y, float z) {
     return Matrix4x4f{
-        x , 0.0f, 0.0f, 0.0f,
+        x ,   0.0f, 0.0f, 0.0f,
         0.0f,    y, 0.0f, 0.0f,
         0.0f, 0.0f,    z, 0.0f,
         0.0f, 0.0f, 0.0f, 1.0f
     };
 }
 Matrix4x4f const Matrix4x4f::get_rotate_x(float theta) {
-    float sinT{sinf(theta)};
-    float cosT{cosf(theta)};
+    float const sinT{sinf(theta)};
+    float const cosT{cosf(theta)};
     return Matrix4x4f{
         1.0f, 0.0f, 0.0f, 0.0f,
         0.0f, cosT,-sinT, 0.0f,
@@ -199,8 +199,8 @@ Matrix4x4f const Matrix4x4f::get_rotate_x(float theta) {
     };
 }
 Matrix4x4f const Matrix4x4f::get_rotate_y(float theta) {
-    float sinT{sinf(theta)};
-    float cosT{cosf(theta)};
+    float const sinT{sinf(theta)};
+    float const cosT{cosf(theta)};
     return Matrix4x4f{
         cosT, 0.0f, sinT, 0.0f,
         0.0f, 1.0f, 0.0f, 0.0f,
@@ -209,8 +209,8 @@ Matrix4x4f const Matrix4x4f::get_rotate_y(float theta) {
     };
 }
 Matrix4x4f const Matrix4x4f::get_rotate_z(float theta) {
-    float sinT{sinf(theta)};
-    float cosT{cosf(theta)};
+    float const sinT{sinf(theta)};
+    float const cosT{cosf(theta)};
     return Matrix4x4f{
         cosT,-sinT, 0.0f, 0.0f,
         sinT, cosT, 0.0f, 0.0f,
@@ -219,7 +219,7 @@ Matrix4x4f const Matrix4x4f::get_rotate_z(float theta) {
     };
 }
 Matrix4x4f const Matrix4x4f::get_projection(float fov_Y, float aspect, float n, float f) {
-    float tmp{1.0f/tanf(fov_Y/2.0f)};
+    float const tmp{1.0f/tanf(fov_Y/2.0f)};
     return Matrix4x4f{
         tmp/aspect, 0.0f, 0.0f, 0.0f,
         0.0f, tmp, 0.0f, 0.0f,

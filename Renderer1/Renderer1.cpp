@@ -121,6 +121,37 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+    case WM_KEYDOWN:
+        switch (wParam) 
+        { 
+        case VK_LEFT:
+            rendering_pipeline.y_rot += 0.1f;
+            rendering_pipeline.draw();
+            break;
+        case VK_RIGHT:
+            rendering_pipeline.y_rot -= 0.1f;
+            rendering_pipeline.draw();
+            break;
+        case VK_UP:
+            rendering_pipeline.x_rot += 0.1f;
+            rendering_pipeline.draw();
+            break;
+        case VK_DOWN:
+            rendering_pipeline.x_rot -= 0.1f;
+            rendering_pipeline.draw();
+            break;
+        case VK_HOME:
+            break;
+        case VK_END: 
+            break;
+        case VK_INSERT: 
+            break;
+        case VK_DELETE: 
+            break;
+        case VK_F2: 
+            break;
+        } 
+        break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
 
